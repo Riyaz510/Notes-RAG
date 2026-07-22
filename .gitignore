@@ -1,2 +1,6 @@
-venv
-docs
+venv/
+docs/
+chroma_db/
+.env
+__pycache__/
+*.pyc
