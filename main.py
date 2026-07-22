@@ -18,6 +18,8 @@ import chromadb
 from chromadb.utils import embedding_functions
 from pypdf import PdfReader
 from groq import Groq
+from dotenv import load_dotenv
+import os
 
 DOCS_DIR = "docs"
 CHUNK_SIZE = 500       # characters per chunk
@@ -99,7 +101,7 @@ def main():
         print(f"Created '{DOCS_DIR}/' — add some .txt or .pdf files there and rerun.")
         return
 
-    groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+    groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
     collection = build_vector_store()
 
     print("Ask questions about your docs (type 'exit' to quit).")
